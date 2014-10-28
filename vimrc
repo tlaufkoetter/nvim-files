@@ -1,7 +1,7 @@
 let mapleader = ","
 
 " pathogen
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
 " invisible characters
@@ -49,3 +49,5 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
+" fugitive settings
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
