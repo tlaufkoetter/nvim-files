@@ -4,6 +4,7 @@ let mapleader = ","
 call pathogen#infect()
 call pathogen#helptags()
 
+
 " invisible characters
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -14,7 +15,10 @@ highlight SpecialKey guifg=#4a4a59
 syntax on
 
 " Visuals
-colorscheme desert 
+if $term!="xterm"
+	set t_Co=256
+	colorscheme desert256
+endif
 set number
 
 " Indentation
