@@ -10,3 +10,6 @@
 [submodule "bundle/latex-live-preview"]
 	path = bundle/latex-live-preview
 	url = https://github.com/xuhdev/vim-latex-live-preview.git
+[submodule "bundle/monokai"]
+	path = bundle/monokai
+	url = https://github.com/sickill/vim-monokai.git
