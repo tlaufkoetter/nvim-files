@@ -25,6 +25,7 @@ set number
 set ts=4 sts=4 sw=4 noexpandtab
 
 if has("autocmd")
+  autocmd Filetype tex setl updatetime=1000
   " Enable file type detection
   filetype on
 
