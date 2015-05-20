@@ -15,10 +15,10 @@ highlight SpecialKey guifg=#4a4a59
 syntax on
 
 " Visuals
-colorscheme monokai
+" colorscheme monokai
 if $term!="xterm"
 	set t_Co=256
-	colorscheme monokai
+	" colorscheme monokai
 endif
 set number
 
