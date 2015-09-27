@@ -10,3 +10,6 @@
 [submodule "bundle/vim-hybrid"]
 	path = bundle/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid.git
+[submodule "bundle/vim-flake8"]
+	path = bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
