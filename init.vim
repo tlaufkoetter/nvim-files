@@ -12,12 +12,13 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'godlygeek/tabular'
-Plugin 'nvie/vim-flake8'
+" Plugin 'nvie/vim-flake8'
 Plugin 'kien/ctrlp.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'burnettk/vim-angular'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/syntastic'
+Plugin 'hynek/vim-python-pep8-indent'
 call vundle#end()
 
 let python_highligh_all=1
@@ -26,6 +27,7 @@ filetype plugin indent on
 
 " Configuration
 let mapleader = ","
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*.pyc
 
 " Preferences
 set autoread
@@ -39,11 +41,14 @@ set list
 set listchars=tab:▸\ ,eol:¬
 " set number
 set relativenumber
+set number
 set omnifunc=synstaxcomplete#Complete
 set showcmd
 set smartcase
 set smartindent
 set ts=4
+set sw=4
+set sts=4
 set ttyfast
 set wrapmargin=0
 set wrap
@@ -54,19 +59,6 @@ set display=lastline
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -79,19 +71,10 @@ let g:syntastic_check_on_wq = 0
 " Behaviour
 set foldmethod=manual
 autocmd bufwritepost .vimrc source $MYVIMRC
-autocmd BufWritePost *.py call Flake8()
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 " Appearance
 set background=dark
+let g:hybrid_custom_term_colors = 1
 colorscheme hybrid
 
 " Mappings
