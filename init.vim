@@ -1,5 +1,4 @@
 " Setup
-set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -10,18 +9,21 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'godlygeek/tabular'
-" Plugin 'nvie/vim-flake8'
 Plugin 'kien/ctrlp.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'burnettk/vim-angular'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'Rykka/riv.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Shougo/deoplete.nvim'
 call vundle#end()
 
 let python_highligh_all=1
+let g:riv_python_rst_hl=1
 syntax on
 filetype plugin indent on
 
@@ -49,16 +51,16 @@ set smartindent
 set ts=4
 set sw=4
 set sts=4
-set ttyfast
 set wrapmargin=0
 set wrap
+
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnippets"
+let g:deoplete#enable_at_startup = 1
 
 set linebreak
 set textwidth=0
 set display=lastline
-
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -70,7 +72,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " Behaviour
 set foldmethod=manual
-autocmd bufwritepost .vimrc source $MYVIMRC
 
 " Appearance
 set background=dark
