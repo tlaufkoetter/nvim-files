@@ -9,6 +9,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'w0ng/vim-hybrid'
@@ -41,7 +44,6 @@ set hidden
 set ignorecase
 set list
 set listchars=tab:▸\ ,eol:¬
-" set number
 set relativenumber
 set number
 set omnifunc=synstaxcomplete#Complete
@@ -55,7 +57,7 @@ set wrapmargin=0
 set wrap
 
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnippets"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 let g:deoplete#enable_at_startup = 1
 
 set linebreak

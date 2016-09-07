@@ -1,0 +1,35 @@
+snippet promise "AngularJS promise resolving" b
+${1:service}.${2:method}(${3:args})
+	.then(
+			function(${4:response}) {
+				${6:return $4}
+			},
+			function(${5:response}) {
+				${7:return $5}
+			}
+		);${0}
+endsnippet
+
+snippet 'notifyerror(( (\d+))*)' "AngularJS Notifcation" br
+var ${1:message};
+switch(${2:status_code}) {${0}`!p
+groups = match.groups()[0]
+if groups:
+	for groupie in groups.split():
+		snip >> 1
+		snip += 'case '+str(str.strip(groupie))+':'
+		snip >> 1
+		snip += t[1] + ' = "ups";'
+		snip += 'break;'
+		snip.reset_indent()
+snip >> 1
+snip += 'default:'
+snip >> 1
+snip += t[1] + ' = "Something went wrong.";'
+snip.reset_indent()`
+}
+Notifcation.error({
+	"title": "${3:error title}",
+	"message": message
+});
+endsnippet

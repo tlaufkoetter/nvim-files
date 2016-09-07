@@ -1,0 +1,9 @@
+snippet 'reqparse param' "reqparse parameter" b
+${1:self.reqparse}.add_argument(
+	'${2:arg_name}',
+	type=${3:str},
+	required=${4:True},
+	help='${5:what do}',
+	location='${6:json}'
+)
+endsnippet
