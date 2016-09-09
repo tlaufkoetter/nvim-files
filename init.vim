@@ -23,6 +23,8 @@ Plugin 'Rykka/riv.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'rking/ag.vim'
+Plugin 'andreshazard/vim-freemarker.git'
 call vundle#end()
 
 let python_highligh_all=1
@@ -32,7 +34,8 @@ filetype plugin indent on
 
 " Configuration
 let mapleader = ","
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*.pyc
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*.pyc,*.class
+let g:ag_working_path_mode="r"
 
 " Preferences
 set autoread
