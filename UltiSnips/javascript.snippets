@@ -1,11 +1,11 @@
-snippet promise "AngularJS promise resolving" b
+snippet promise "AngularJS promise resolving" w
 ${1:service}.${2:method}(${3:args})
 	.then(
 			function(${4:response}) {
-				${6:return $4}
+				${5:return $4;}
 			},
-			function(${5:response}) {
-				${7:return $5}
+			function(${6:response}) {
+				${7:return $6;}
 			}
 		);${0}
 endsnippet
@@ -31,5 +31,11 @@ snip.reset_indent()`
 Notifcation.error({
 	"title": "${3:error title}",
 	"message": message
+});
+endsnippet
+
+snippet '(\w+)\.foreach' "For Each loop" r
+`!p snip.rv += match.group(1)`.forEach(function(${1:element}) {
+	${0}
 });
 endsnippet
