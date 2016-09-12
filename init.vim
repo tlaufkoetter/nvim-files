@@ -12,6 +12,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-abolish'
 Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'w0ng/vim-hybrid'
@@ -26,6 +27,9 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'matthewsimo/angular-vim-snippets'
+Plugin 'rking/ag.vim'
+Plugin 'andreshazard/vim-freemarker.git'
+Plugin 'timcharper/textile.vim'
 call vundle#end()
 
 let python_highligh_all=1
@@ -35,7 +39,8 @@ filetype plugin indent on
 
 " Configuration
 let mapleader = ","
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*.pyc
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*.pyc,*.class
+let g:ag_working_path_mode="r"
 
 " Preferences
 set autoread

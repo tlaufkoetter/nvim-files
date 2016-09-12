@@ -1,0 +1,22 @@
+snippet function "creates a java function" b
+/**
+ * ${6:TODO: Javadoc}
+ */
+${1:public}${2: static} ${3:void} ${4:function}(${5:args}) {
+	`!p snip.rv += '{} result = null;'.format(t[3]) if t[3] and not t[3] == 'void' else ''`
+	${0}
+	`!p snip.rv += 'return result;' if t[3] and not t[3] == 'void' else ''`
+}
+endsnippet
+
+snippet 'ofbiz debug' "OFBiz Debug Util" b
+Debug.logError("${3:message}", ${1:module}${2:, args});
+endsnippet
+
+snippet 'ofbiz nullcheck' "OFBiz parameter nullcheck" b
+if (${1:args}) {
+	String msg = "${2:message}";
+	Debug.logError(msg, ${3:module});
+	throw new IllegalArgumentException(msg);
+}${0}
+endsnippet
