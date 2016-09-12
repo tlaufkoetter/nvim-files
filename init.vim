@@ -30,6 +30,7 @@ Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'rking/ag.vim'
 Plugin 'andreshazard/vim-freemarker.git'
 Plugin 'timcharper/textile.vim'
+Plugin 'lervag/vimtex'
 call vundle#end()
 
 let python_highligh_all=1
