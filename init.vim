@@ -24,10 +24,13 @@ Plugin 'Rykka/riv.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'rking/ag.vim'
 Plugin 'andreshazard/vim-freemarker.git'
 Plugin 'timcharper/textile.vim'
-Plugin 'pangloss/vim-javascript'
+Plugin 'lervag/vimtex'
 call vundle#end()
 
 let python_highligh_all=1
