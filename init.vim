@@ -27,6 +27,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'rking/ag.vim'
 Plugin 'andreshazard/vim-freemarker.git'
 Plugin 'timcharper/textile.vim'
+Plugin 'pangloss/vim-javascript'
 call vundle#end()
 
 let python_highligh_all=1

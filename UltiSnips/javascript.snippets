@@ -10,32 +10,91 @@ ${1:service}.${2:method}(${3:args})
 		);${0}
 endsnippet
 
-snippet 'notifyerror(( (\d+))*)' "AngularJS Notifcation" br
+snippet notifyerror+ "AngularJS Notifcation" b
 var ${1:message};
-switch(${2:status_code}) {${0}`!p
-groups = match.groups()[0]
-if groups:
-	for groupie in groups.split():
-		snip >> 1
-		snip += 'case '+str(str.strip(groupie))+':'
-		snip >> 1
-		snip += t[1] + ' = "ups";'
-		snip += 'break;'
-		snip.reset_indent()
-snip >> 1
-snip += 'default:'
-snip >> 1
-snip += t[1] + ' = "Something went wrong.";'
-snip.reset_indent()`
+switch (${2:status_code}) {
+	notifycase+${3}
+	default:
+		$1 = "${4:something went wrong}";
 }
-Notifcation.error({
-	"title": "${3:error title}",
-	"message": message
+Notification.error({
+	title: "${5:Something went wrong},
+	message: $1
 });
+endsnippet
+
+snippet notifycase+ "Case block for notification" b
+case ${1:le case}:
+	${2:message} = "${4:message}";
+	break;
+notifycase+
 endsnippet
 
 snippet '(\w+)\.foreach' "For Each loop" r
 `!p snip.rv += match.group(1)`.forEach(function(${1:element}) {
 	${0}
 });
+endsnippet
+
+snippet 'angular service' "AngularJS Service" b
+(function() {
+	'use strict';
+
+	angular
+		.module("${1:module name}")
+		.factory("${2:serviceName}", $2);
+
+	function $2($http, ${3:args}) {
+		angular services ${4}
+	}
+})();
+endsnippet
+
+snippet 'angular services ([\w,]+)+' "AnularJS Services" br
+`!p
+services = match.group(1).split(',')
+snip.rv += "var service = {"
+snip >> 1
+for service in services:
+	snip += service + ": " + service + ("" if service is services[-1] else ",")
+snip << 1
+snip += "};"
+snip += "return service;"
+snip += ""
+for service in services:
+	snip += "function " + service + "() {"
+	snip += "}"
+	if service is not services[-1]:
+		snip += ""
+`
+endsnippet
+
+snippet 'angular controller' "AngularJS Controller" b
+(function() {
+	'use strict';
+
+	angular
+		.module("${1:module name}")
+		.controller("${2:controllerName}", $2);
+
+	function $2(${3:args}) {
+		angular controllers ${4}
+	}
+})();
+endsnippet
+
+snippet 'angular controllers ([\w,]+)+' "AnularJS Controllers" br
+`!p
+controllers = match.group(1).split(',')
+snip += ""
+snip += "var vm = this;"
+for controller in controllers:
+	snip += "vm." + controller + " = " + controller + ";"
+snip += ""
+for controller in controllers:
+	snip += "function " + controller + "() {"
+	snip += "}"
+	if controller is not controllers[-1]:
+		snip += ""
+`
 endsnippet
