@@ -31,6 +31,7 @@ Plugin 'rking/ag.vim'
 Plugin 'andreshazard/vim-freemarker.git'
 Plugin 'timcharper/textile.vim'
 Plugin 'lervag/vimtex'
+Plugin 'reedes/vim-lexical'
 call vundle#end()
 
 let python_highligh_all=1
@@ -38,10 +39,18 @@ let g:riv_python_rst_hl=1
 syntax on
 filetype plugin indent on
 
+augroup lexical
+    autocmd!
+    autocmd FileType markdown,mkd call lexical#init()
+    autocmd FileType textile,tex call lexical#init()
+    autocmd FileType text call lexical#init({ 'spell': 0 })
+augroup END
+
 " Configuration
 let mapleader = ","
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,*.pyc,*.class
 let g:ag_working_path_mode="r"
+let g:lexical#thesaurus = ['~/.config/nvim/thesaurus/mthesaur.txt',]
 
 " Preferences
 set autoread
@@ -91,6 +100,7 @@ colorscheme hybrid
 
 " Mappings
 nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>s :set spell!<CR>
 nnoremap <SPACE> za
 "split navigations
 nnoremap <C-J> <C-W><C-J>
